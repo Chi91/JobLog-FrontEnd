@@ -1,0 +1,32 @@
+#student-header {
+	background-color: var(--primary-base);
+	padding: 1rem 0;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	justify-content: space-between;
+	/* TODO: Vorschlag, um Header immer sichbar zu halten */
+	/* position: sticky;
+	top: 0;
+	z-index: 10; */
+
+	&.content-hidden {
+		justify-content: flex-start;
+
+		form,
+		#filter-button {
+			display: none;
+		}
+	}
+
+	img {
+		max-width: 2.3rem;
+		margin: 0 0.5rem;
+	}
+
+	#student-logout-button {
+		color: var(--on-primary-base);
+		font-size: 1.5rem;
+		padding: 0 1rem;
+	}
+}

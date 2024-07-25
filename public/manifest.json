@@ -1,0 +1,20 @@
+{
+	"short_name": "JobLog",
+	"name": "JobLog - Jobbörse an der BHT",
+	"icons": [
+		{
+			"src": "favicon.svg",
+			"sizes": "64x64 32x32 24x24 16x16",
+			"type": "image/svg+xml"
+		},
+		{
+			"src": "logo400.png",
+			"type": "image/png",
+			"sizes": "400x400"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#3a3a3a",
+	"background_color": "#ffffff"
+}

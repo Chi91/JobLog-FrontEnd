@@ -1,0 +1,133 @@
+#company-student-profile {
+	p {
+		margin: 0;
+	}
+
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"back back"
+		"profileWrap profileWrap"
+		"availability doc"
+		"contact contact";
+	gap: 25px;
+
+	.back-button {
+		grid-area: back;
+		display: flex;
+		align-items: center;
+		justify-content: left;
+		width: fit-content;
+		font-size: 1rem;
+		text-decoration: none;
+		font-weight: bold;
+
+		&:hover,
+		&:focus,
+		&:visited,
+		&:active {
+			color: var(--clr-text);
+			outline: none;
+			text-decoration: none;
+		}
+
+		i {
+			padding-right: 5px;
+		}
+	}
+
+	#profile-wrap {
+		grid-area: profileWrap;
+
+		display: grid;
+		grid-template-columns: 0.3fr 2fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"pic name"
+			"pic course";
+
+		color: var(--clr-text);
+
+		#profile-pic {
+			grid-area: pic;
+
+			figure {
+				background-color: var(--gray);
+				width: 8rem;
+				aspect-ratio: 1;
+				border-radius: 50%;
+				overflow: hidden;
+				flex: 0 0 auto;
+				display: grid;
+				place-items: center;
+				display: block;
+				margin-bottom: 1rem;
+				margin-right: 1rem;
+			}
+		}
+
+		#name {
+			grid-area: name;
+		}
+
+		#course {
+			grid-area: course;
+		}
+	}
+
+	#student-availability {
+		grid-area: availability;
+	}
+
+	#student-documents {
+		grid-area: doc;
+
+		#download-all-button {
+			float: right;
+
+			&.disabled {
+				color: #a1a1a1;
+				pointer-events: none;
+			}
+		}
+
+		.downloadButton {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			width: 100%;
+			margin-top: 5%;
+
+			i {
+				margin-right: 5%;
+			}
+		}
+	}
+
+	#student-contact {
+		grid-area: contact;
+
+		#wrap-helper {
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			grid-template-rows: auto;
+			align-items: center;
+			justify-content: center;
+			grid-template-areas: "email tel";
+
+			i {
+				padding: 1rem;
+			}
+
+			.email {
+				grid-area: email;
+			}
+
+			.phone {
+				grid-area: phone;
+			}
+		}
+	}
+}

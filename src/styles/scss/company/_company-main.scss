@@ -1,0 +1,88 @@
+#company-main {
+	padding: 1%;
+}
+
+#company-flex-helper {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+#company-main {
+	flex-grow: 999;
+	flex-basis: 0;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.company-article {
+
+	header {
+		border-bottom: 2px solid var(--primary-base);
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		padding: 1rem 0;
+		justify-content: space-between;
+		transition: border-color var(--transition-time) ease;
+
+		h2 {
+			font-size: 1rem;
+			font-weight: 400;
+		}
+
+		.company-edit-button {
+			background-color: transparent;
+			border: none;
+			letter-spacing: normal;
+			padding: 0;
+			font-size: 1rem;
+		}
+
+		.searchform {
+			flex: 1 1 auto;
+		}
+	}
+
+	main {
+		padding: 1rem;
+	}
+
+	&.edit-mode {
+
+		header {
+			border-color: var(--clr-primary);
+		}
+
+		main {
+			display: block !important;
+		}
+
+		textarea {
+			resize: vertical;
+			width: 100%;
+			min-height: 6rem;
+			font-size: 1rem;
+			line-height: 1.5;
+			padding: .3rem .5rem;
+			border: 2px solid var(--deselected);
+			border-radius: 8px;
+			transition: border-color var(--transition-time) ease;
+
+			&:focus {
+				outline: none;
+				border-color: var(--clr-primary);
+			}
+		}
+	}
+}
+
+.delete-job-modal {
+	p {
+		color: white;
+		text-align: center;
+	}
+}
+
+hr {
+	border: 1px solid var(--deselected);
+}

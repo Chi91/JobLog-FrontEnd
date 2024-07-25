@@ -1,0 +1,13 @@
+#company-applications-ownjobs-slider .jobcard {
+	border: 3px solid var(--primary-base);
+	transition: border-color 300ms ease-out;
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+	}
+
+	&.active {
+		border-color: var(--clr-primary);
+	}
+}

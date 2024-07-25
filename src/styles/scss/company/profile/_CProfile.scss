@@ -1,0 +1,103 @@
+@use "../../mixins";
+
+#company-profile-header {
+	@include mixins.flex-helper(row nowrap, flex-start, center, 2rem);
+
+	.profile-pic {
+		max-width: 9rem;
+	}
+}
+
+.flex-helper.row.company-profile {
+	@include mixins.flex-helper(row wrap, space-between, flex-start, 2rem);
+
+	/* ÜberUns-Input und Ansicht */
+	#company-data {
+		flex: 1 1 45%;
+	}
+
+	/* Kontakt-Input und Ansicht */
+	#company-data-contact {
+		flex: 1 1 45%;
+
+		main {
+			display: grid;
+			grid-template-columns: 5% 95%;
+			align-items: center;
+			gap: .3rem;
+		}
+	}
+}
+
+.company-data-editor {
+	display: grid;
+	grid-template-columns: 5% 95%;
+	align-items: center;
+	gap: .5rem;
+
+	i {
+		grid-column: 1 / 2;
+	}
+
+	label {
+		grid-column: 2 / 3;
+	}
+
+	input {
+		grid-column: 2 / 3;
+		border: 2px solid var(--deselected);
+		border-radius: 8px;
+		transition: border-color var(--transition-time) ease;
+		font-size: 1rem;
+
+		&:focus {
+			outline: none;
+			border-color: var(--clr-primary);
+		}
+	}
+
+	.course-select {
+		grid-column: 2 / 3;
+
+		&>div {
+			border-radius: 8px;
+			border-width: 2px;
+			border-color: var(--deselected);
+		}
+
+		.select-placeholder {
+			font-size: 0.9rem;
+			color: var(--clr-text);
+		}
+	}
+}
+
+/* Eigene Angebote */
+#own-job-list-header {
+	padding-top: 1rem;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+
+	input {
+		font-size: 1em;
+		width: 50%;
+		align-self: center;
+		border-radius: 8px;
+		padding-left: 10px;
+		font-family: inherit;
+	}
+
+	#add-icon {
+		margin-left: 50px;
+		margin-right: 50px;
+	}
+
+	#search-icon {
+		margin-left: -25px;
+	}
+
+	#filter-icon {
+		margin-left: auto;
+	}
+}

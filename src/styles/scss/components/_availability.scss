@@ -1,0 +1,124 @@
+@use "../mixins";
+
+.availability-editor {
+
+	ul {
+		list-style: none;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		margin-left: 0;
+
+		li {
+			padding: 3% 0;
+			width: 100%;
+			text-align: center;
+
+			button {
+				color: var(--deselected);
+				background-color: transparent;
+				border: none;
+				padding: 0;
+			}
+
+			&.has-timeslots button {
+				color: var(--clr-primary) !important;
+			}
+
+			&.active {
+				background-color: var(--gray);
+				border-radius: 8px 8px 0 0;
+
+				button {
+					color: var(--clr-text);
+				}
+			}
+		}
+	}
+
+	.availability-editor-body {
+		background-color: var(--gray);
+		padding: 5%;
+
+		.currently-saved-timeslots {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 5%;
+			align-items: center;
+
+			span {
+				background-color: var(--primary-base);
+				color: var(--on-primary-base);
+				padding: 2% 6%;
+				border-radius: 8px;
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: baseline;
+				justify-content: space-between;
+
+				.delete-timeslot-button {
+					border: none;
+					background-color: transparent;
+					color: inherit;
+					padding: 0;
+					font-size: inherit;
+				}
+			}
+
+			.no-timeslots {
+				grid-column: 1 / 3;
+				text-align: center;
+				font-weight: 600;
+				font-size: 1.1rem;
+			}
+		}
+
+		form {
+			margin-top: 1rem;
+			display: grid;
+			grid-template-columns: 20% 80%;
+			align-items: center;
+			row-gap: 1rem;
+
+			&>p {
+				font-size: 1.5rem;
+				font-weight: 600;
+			}
+
+			&>input {
+				background-color: var(--primary-base);
+				border: none;
+				font-size: 1.5rem;
+				color: var(--on-primary-base);
+				flex: 1 1 auto;
+			}
+
+			#additional-save-button{
+				margin: 0rem auto 0;
+				display: block;
+				grid-column: 1 / -1;
+			}
+			
+			.button-secondary {
+				margin: 2rem auto 0;
+				display: block;
+				grid-column: 1 / -1;
+			}
+
+			
+		}
+	}
+}
+
+// AVAILABILITY DISPLAY
+.availability-display {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	align-items: center;
+	gap: 0.5rem;
+
+	.timeslot {
+		margin-top: 0;
+		grid-column: 2 / 3;
+	}
+}

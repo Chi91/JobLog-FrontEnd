@@ -1,0 +1,67 @@
+#studentList {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: left;
+}
+
+.student-card-company-home {
+    color: white;
+    background-color: var(--primary-base);
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "name   pic  pic"
+        "course course course"
+        "time  time moreInfo";
+
+    width: 290px;
+    height: 200px;
+    border-radius: 20px;
+
+    padding: 25px;
+    margin: 25px;
+
+    #name {
+        grid-area: name;
+    }
+
+    #course {
+        grid-area: course;
+    }
+
+    #profile-pic {
+        grid-area: pic;
+
+        justify-self: right;
+        align-self: center;
+
+        figure {
+			background-color: var(--gray);
+			width: 5rem;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			overflow: hidden;
+			flex: 0 0 auto;
+			display: grid;
+			place-items: center;
+		}
+    }
+
+    #availableTime {
+        grid-area: time;
+        span {
+            padding: 1rem;
+        }
+    }
+
+    #more-info {
+        grid-area: moreInfo;
+
+        text-decoration: none;
+        color: var(--clr-primary);
+        text-transform: uppercase;
+    }
+}

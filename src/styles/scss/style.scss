@@ -1,0 +1,199 @@
+@use "./vars";
+@use "./fonts";
+@use "./mixins";
+@use "foundation";
+
+// global things
+@use "./forms";
+@use "components/" as components;
+
+// student view
+@use "./student/student-main";
+
+//COMPANY-VIEW-------------------------------------------
+//statics
+@use "./company/company-main";
+@use "./company/static/sideNavCompany";
+@use "./company/static/searchBarCompany";
+//main
+@use "./company/home/ownOffer";
+@use "./company/home/CompanyHome";
+@use "./company/home/CompanyHomePublic";
+@use "./company/companyStudentProfile";
+@use "./company/studentList";
+@use "./company/profile/CProfile";
+@use "./company/job/jobView";
+@use "./company/job/jobList";
+@use "./company/job/jobEdit";
+@use "company/applications";
+
+@use "sass:color";
+
+// BUTTONS
+button {
+	background-color: transparent;
+	border: none;
+	font-size: 1rem;
+}
+
+.button {
+	border: 3px solid var(--clr-primary);
+	border-radius: 30px;
+	font-size: 0.8rem;
+	letter-spacing: 0.1rem;
+	outline: none;
+	padding: .6rem 1.2rem;
+	text-transform: uppercase;
+	transition: all 300ms ease;
+
+	&-primary {
+		@extend .button;
+		background-color: var(--clr-primary);
+		color: white;
+
+		&:hover {
+			background-color: darken(#FF6C02, 5);
+			border-color: darken(#FF6C02, 5);
+		}
+	}
+
+	&-secondary {
+		@extend .button;
+		background-color: transparent;
+		color: var(--clr-primary) !important;
+
+		&:hover {
+			background-color: var(--clr-primary);
+			color: var(--clr-text) !important;
+		}
+	}
+
+	&-tertiary {
+		@extend .button;
+		background-color: transparent;
+		border: none;
+		color: var(--clr-primary) !important;
+		font-size: 1rem;
+		padding: 0;
+
+		&:hover {
+			color: #fff !important;
+			text-decoration: underline;
+		}
+	}
+
+	&-icon-left i {
+		margin-right: .5rem;
+	}
+
+	&-icon-right i {
+		margin-left: .5rem;
+	}
+}
+
+// LINKS
+a {
+	color: var(--clr-primary);
+	text-decoration: none;
+	transition: color var(--transition-time) ease-in-out;
+
+	&:hover,
+	&:focus {
+		color: var(--clr-text);
+	}
+
+	&[target="_blank"]::after {
+		content: "\f08e";
+		font-family: "Font Awesome 6 Free";
+		font-weight: 900;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		margin-left: .3rem;
+	}
+}
+
+// ERROR MESSAGES
+.error-message {
+	background-color: #FDE2E2;
+	border: 2px solid var(--attention);
+	color: var(--attention);
+	font-weight: 600;
+	margin-top: 2rem;
+	padding: 1.3rem;
+	text-align: center;
+}
+
+// LOGO SIZES
+.logo-medium {
+	max-width: 6rem;
+
+	@media (max-width: 35rem) {
+		max-width: 3rem;
+	}
+}
+
+// LOGOS WITH TEXT NEXT TO THEM
+.logo-with-text {
+	@include mixins.flex-helper(row nowrap, flex-start, center, 1rem);
+}
+
+// PARAGRAPHS
+p+p {
+	margin-top: 1rem;
+}
+
+.bold-paragraph {
+	font-weight: 600;
+}
+
+// AVATAR UPLOAD
+.upload-avatar {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	.profile-pic {
+		position: relative;
+		overflow: hidden;
+		max-width: 6rem;
+		aspect-ratio: 1 / 1;
+		border-radius: 50%;
+
+		figcaption {
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			width: 100%;
+			z-index: 5;
+			padding-bottom: 0.5rem;
+			background-color: rgba(0 0 0 / 0.3);
+
+			#change-avatar-button {
+				font-size: 1rem;
+				color: #fff;
+			}
+		}
+
+		.fa-stack {
+			font-size: 3rem;
+			width: 2em;
+		}
+
+		.fa-circle {
+			color: var(--deselected);
+		}
+
+		.fa-user {
+			color: #fff;
+		}
+	}
+
+	h2 {
+		margin: 1rem 0;
+		font-weight: 100;
+		font-size: 1.5rem;
+	}
+}

@@ -1,0 +1,51 @@
+@use "../mixins";
+
+.searchform {
+	display: flex;
+	padding: 1rem;
+
+	&.no-padding {
+		padding: 0;
+	}
+
+	form {
+		flex: 1 1 auto;
+
+		label {
+			display: none;
+		}
+
+		.search-container {
+			@include mixins.flex-helper(row nowrap, flex-start, center);
+			background-color: #ffffff;
+			border: 2px solid var(--deselected);
+			border-radius: 8px;
+			transition: border-color var(--transition-time) ease;
+
+			&:focus-within {
+				border-color: var(--clr-primary);
+			}
+		}
+
+		input {
+			flex: 1 1 auto;
+			background-color: transparent;
+			border: none;
+			outline: none;
+		}
+
+		i {
+			padding: 0 0.7rem;
+		}
+	}
+
+	.searchform-filter-button {
+		color: var(--clr-primary);
+		padding: 0 1rem 0 2rem;
+		font-size: 1.5rem;
+
+		i {
+			vertical-align: middle;
+		}
+	}
+}

@@ -1,0 +1,132 @@
+@use "../../components/deleteJobModal";
+
+#company-ownjobs-slider main {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	/* Bewirkt Änderungen im Container aller Cards */
+	#joblist {
+		flex: 1 1 auto;
+		display: flex;
+		overflow-x: auto;
+		scroll-behavior: smooth;
+
+		/* For Chrome, Safari, Opera */
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* scrollbar for IE, Edge and FireFox */
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.fa-angle-left,
+	.fa-angle-right {
+		font-size: 2rem;
+		padding: 5px;
+	}
+}
+
+.jobList {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: left;
+}
+
+.job-card-company {
+	h3 {
+		color: white;
+
+		position: relative;
+	}
+
+	//Anfangszustand
+	h3::after {
+		display: block;
+		content: "";
+		width: 0px;
+		height: 2px;
+		background-color: var(--clr-primary);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		transition: all 1s;
+	}
+
+	//Endzustand
+	h3:hover::after {
+		width: 100%;
+	}
+
+	color: white;
+	background-color: var(--primary-base);
+
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"name   name  name"
+		"hours hours edit"
+		"salary salary salary"
+		"vacation vacation delete";
+
+	width: 290px;
+	height: 200px;
+	border-radius: 20px;
+	align-items: center;
+
+	padding: 25px;
+	margin: 25px;
+
+	span {
+		padding: 1rem;
+	}
+
+	#name {
+		grid-area: name;
+	}
+
+	#weeklyHours {
+		grid-area: hours;
+	}
+
+	#salaryPerHour {
+		grid-area: salary;
+	}
+
+	#vacation {
+		grid-area: vacation;
+	}
+
+	#edit {
+		grid-area: edit;
+
+		font-size: 1.5rem;
+
+		#edit-button {
+			color: white;
+		}
+	}
+
+	#delete {
+		grid-area: delete;
+
+		color: var(--clr-primary);
+		font-size: 1.5rem;
+
+		cursor: pointer;
+	}
+
+	.fa-stack {
+		font-size: 2rem;
+		margin-left: auto;
+	}
+
+	.fa-circle {
+		color: #d9d9d9;
+		transition: color var(--transition-time) ease;
+	}
+}

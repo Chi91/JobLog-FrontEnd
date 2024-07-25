@@ -1,0 +1,168 @@
+@use "../mixins";
+
+.filter-overlay-background {
+	display: flex;
+	justify-content: right;
+	overflow: hidden;
+	padding-left: 1rem;
+
+	&.preload {
+		max-height: 0 !important;
+	}
+
+	&.open {
+		animation: openBody .3s forwards;
+
+		.filter-overlay-body {
+			animation: slidein .3s .3s forwards;
+		}
+	}
+
+	&.closed {
+		animation: closeBody .3s .3s forwards;
+
+		.filter-overlay-body {
+			animation: slideout .3s forwards;
+		}
+	}
+
+	.filter-overlay-body {
+		flex: 1;
+		background-color: var(--primary-base);
+		border-radius: 8px 0 0 8px;
+		transform: translateX(100%);
+		overflow-y: auto;
+
+		.select-timematch,
+		.select-course,
+		.select-field {
+			border-bottom: 1px solid var(--on-primary-base);
+			padding: 2rem 1rem;
+		}
+
+		.select-timematch,
+		.select-course > button,
+		.select-field > button {
+			@include mixins.flex-helper(row nowrap, space-between, center);
+			color: var(--on-primary-base);
+			width: 100%;
+		}
+
+		.select-field {
+			border-bottom: none;
+		}
+
+		.custom-checkbox input {
+			color: var(--on-primary-base);
+		}
+
+		.set-filter-container {
+			padding: 1rem;
+			text-align: right;
+			position: sticky;
+			bottom: 0;
+			background-color: var(--primary-base);
+			border-top: 1px solid var(--on-primary-base);
+
+			.button-secondary{
+				margin-bottom: 2.5%
+			}
+		}
+
+		.filteroverlay-back {
+			color: var(--on-primary-base);
+			width: 100%;
+			padding: 1rem;
+			display: flex;
+			gap: 1.5rem;
+			align-items: center;
+			position: sticky;
+			top: 0;
+			background-color: var(--primary-base);
+
+			i {
+				font-size: 1.5rem;
+			}
+		}
+
+		ul {
+			list-style: none;
+			margin-left: 0;
+			padding: 0 1rem 1rem;
+			color: var(--on-primary-base);
+
+			.custom-checkbox input::after {
+				color: var(--on-primary-base);
+			}
+		}
+
+		.selected-options {
+
+			.selected-option {
+				background-color: var(--gray);
+				padding: 0.3rem 0.7rem;
+				border-radius: 20px;
+				word-break: break-all;
+				margin: .3rem 0;
+				width: max-content;
+				@include mixins.flex-helper(row nowrap, space-between, center, $gap: .5rem);
+
+				&:first-of-type {
+					margin-top: 1rem;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+
+				.delete-option-button {
+					font-size: 1.5rem;
+
+					i {
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes openBody {
+	from {
+		max-height: 0;
+	}
+
+	to {
+		max-height: 400px;
+	}
+}
+
+@keyframes closeBody {
+	from {
+		max-height: 400px;
+	}
+
+	to {
+		max-height: 0;
+	}
+}
+
+@keyframes slidein {
+	from {
+		transform: translateX(100%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideout {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(100%);
+	}
+}

@@ -1,0 +1,18 @@
+form {
+
+	input,
+	textarea {
+		display: block;
+		padding: 0.7rem;
+	}
+}
+
+// hidden input for file uploads
+.hidden-input {
+	display: none;
+}
+
+// hidden submit button for forms without visible submit button
+.hidden-submit-button {
+	display: none;
+}

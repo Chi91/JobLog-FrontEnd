@@ -1,0 +1,10 @@
+#job-list-header{
+    display: flex;
+    align-items: center;
+	gap: 2rem;
+	padding: 1rem 0;
+
+	.searchform {
+		flex: 1 1 auto;
+	}
+}

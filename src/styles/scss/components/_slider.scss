@@ -1,0 +1,24 @@
+@use "../mixins";
+
+.slider {
+	@include mixins.flex-helper(row nowrap, flex-start, center);
+
+	&>i {
+		font-size: 2rem;
+		padding: 0 .5rem;
+	}
+
+	.slider-body {
+		@include mixins.flex-helper(row nowrap, flex-start, center);
+		flex: 1 1 auto;
+		overflow-x: auto;
+
+		// hide scroll bar
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+}

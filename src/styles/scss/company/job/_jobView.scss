@@ -1,0 +1,131 @@
+@use "../../mixins";
+
+#company-job {
+
+    .back-button {
+        color: var(--clr-text);
+        display: block;
+        font-weight: 600;
+        font-size: 1rem;
+        width: fit-content;
+        text-align: left;
+        padding: 1rem 1.2rem;
+        align-self: center;
+
+        i {
+            margin-right: 0.6rem;
+        }
+    }
+
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "backAndDeleteIcon backAndDeleteIcon"
+        "title title"
+        "description hardFacts"
+        "tags timeSlots"
+        "applications applications";
+    gap: 25px;
+
+    #edit-button {
+        color: black;
+
+        &:hover {
+            color: var(--clr-primary);
+        }
+    }
+
+    .job-view-header {
+        grid-area: backAndDeleteIcon;
+        display: flex;
+        gap: 0.7rem;
+
+        .back-button {
+            justify-self: start;
+            padding: 0;
+        }
+
+        #delete {
+            justify-self: end;
+            font-size: 1.5rem;
+        }
+    }
+
+    #delete {
+        grid-area: deleteIcon;
+
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    #title {
+        grid-area: title;
+    }
+
+    #description {
+        grid-area: description;
+    }
+
+    #hardFacts {
+        grid-area: hardFacts;
+
+        main {
+            display: grid;
+            grid-template-columns: 5% 95%;
+            align-items: center;
+            gap: 0.3rem;
+
+            span {
+                padding-left: 5%;
+            }
+        }
+    }
+
+    #tags {
+        grid-area: tags;
+
+        .flexHelper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            .job-tag {
+                background-color: var(--gray);
+                border-radius: 8px;
+                padding: 0.3rem 1rem;
+                @include mixins.flex-helper(row nowrap, space-between, center, 0.5rem);
+
+                &-delete-button i {
+                    vertical-align: bottom;
+                }
+            }
+        }
+    }
+
+    #timeSlots {
+        grid-area: timeSlots;
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            align-items: center;
+            gap: 0.5rem;
+
+            p{
+                margin: 0;
+            }
+        }
+
+        .timeslot {
+            grid-column: 2 / 3;
+        }
+    }
+
+    #applications {
+        grid-area: applications;
+    }
+}

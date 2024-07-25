@@ -1,0 +1,82 @@
+.modal-company-background {
+	animation: fadein 0.2s;
+	background-color: rgba(0 0 0 / 0.3);
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+
+	&.modal-open {
+		display: block;
+	}
+
+	&.modal-closed {
+		display: none;
+	}
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+#modal-container-company {
+	background-color: var(--secondary-base);
+	border-radius: 20px;
+
+	position: absolute;
+	left: 50%;
+    top: 50%;
+	max-height: 30rem;
+	max-width: 69rem;
+	
+	transform: translate(-50%, -50%);
+	width: 80%;
+	z-index: 100;
+
+	#modal-close-button {
+		color: var(--on-primary-base);
+		padding: 1.3rem;
+		position: absolute;
+		right: 0;
+	}
+
+	// Helper
+
+	#flexHelper {
+		display: flex;
+		justify-content: center;
+		align-items: space-around;
+		flex-flow: column nowrap;
+		height: 100%;
+        gap: 1rem;
+
+        button{
+            width: 25%;
+            align-self: center;
+        }
+	}
+}
+
+#modal-main-company {
+	padding: 2%;
+}
+
+// Error Messages
+
+error-message {
+	background-color: #fde2e2;
+	border: 2px solid var(--attention);
+	padding: 1.3rem;
+	font-weight: 600;
+	color: var(--attention);
+	text-align: center;
+	margin-top: 2rem;
+}

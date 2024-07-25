@@ -1,0 +1,89 @@
+@use "../mixins";
+
+.time-input-modal {
+
+	main {
+		@include mixins.flex-helper(row wrap, center, center, 2rem);
+	}
+
+	.manual-time-input {
+		@include mixins.flex-helper(row nowrap, center, center, .7rem);
+
+		input {
+			font-size: 2rem;
+			font-weight: 600;
+			padding: 0;
+			border: 0;
+			border-radius: 5px;
+			text-align: center;
+			color: var(--clr-text);
+			max-width: 4rem;
+			aspect-ratio: 1;
+
+			&.error {
+				background-color: #FDE2E2;
+				border: 2px solid var(--attention);
+				color: var(--attention);
+				animation: shakeOnError .5s ease 0s 1 normal forwards;
+			}
+		}
+
+		p {
+			font-size: 2rem;
+			color: var(--on-primary-base);
+		}
+	}
+
+	.MuiClock-pin,
+	.MuiClockPointer-root,
+	.MuiClockPointer-thumb {
+		background-color: var(--clr-primary);
+	}
+
+	.MuiClockPicker-root {
+		width: auto;
+		overflow-x: visible;
+		margin: 0;
+	}
+
+	.MuiClockPointer-thumb {
+		border-color: var(--clr-primary);
+	}
+
+	.MuiClockNumber-root {
+		color: #fff;
+
+		&.Mui-disabled {
+			color: rgb(255 255 255 / 0.38);
+		}
+	}
+}
+
+@keyframes shakeOnError {
+
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50%,
+	70% {
+		transform: translateX(-7px);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(7px);
+	}
+
+	80% {
+		transform: translateX(5px);
+	}
+
+	90% {
+		transform: translateX(-5px);
+	}
+}

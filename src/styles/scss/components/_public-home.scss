@@ -1,0 +1,48 @@
+@use "../mixins";
+
+#public-body {
+
+	#root {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+
+	#site-header {
+		background-color: var(--primary-base);
+		color: var(--on-primary-base);
+		font-size: 1.25rem;
+		font-weight: 600;
+		padding: 1rem 2rem;
+		@include mixins.flex-helper(row wrap, space-between, center, 1rem);
+
+		@media (max-width: 35rem){
+			flex-direction: column;
+		}
+
+		&>.logo-with-text {
+			flex: 1 0 auto;
+		}
+	}
+
+	#site-content {
+		padding: 2rem;
+		max-width: 80ch;
+		margin: 0 auto;
+		flex: 1 1 auto;
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		
+		p {
+			font-size: 1.2rem;
+		}
+	}
+
+	#site-footer {
+		background-color: var(--primary-base);
+		position: sticky;
+		bottom: 0;
+		padding: 2rem;
+		text-align: center;
+	}
+}
